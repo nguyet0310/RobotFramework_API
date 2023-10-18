@@ -61,3 +61,10 @@ Execute all test cases from folder
 Execute tags related test cases
 
 ```robot --include SmokeTest '.\Project_restful-booker-herokuapp\Tests\TC3_GetAll&Specific_Bookings.robot'```
+
+
+
+
+**Happy Learning**
+
+**Author  : Avdhut Satish Shirgaonkar**
