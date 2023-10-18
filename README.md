@@ -1,4 +1,4 @@
-# API Automation USing Robot Framework
+# API Automation Using Robot Framework
 ## Introduction
 
 Welcome to the API Automation project using Robot Framework. Robot Framework is a Python-based, keyword-driven automation framework designed for acceptance testing, acceptance test-driven development (ATDD), and behavior-driven development (BDD).
