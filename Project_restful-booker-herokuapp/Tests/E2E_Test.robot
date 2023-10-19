@@ -1,11 +1,12 @@
 *** Settings ***
 Documentation        End to end API Automation for herokuapp
-Library   RequestsLibrary
-Library    Collections
-Library   JSONLibrary
-Library  OperatingSystem
-Library  String
-Library    os
+Library     RequestsLibrary
+Library     Collections
+Library     JSONLibrary
+Library     OperatingSystem
+Library     String
+Library     os
+Library     ../Utilities/CustomLibrary.py
 
 *** Variables ***
 ${base_url}           https://restful-booker.herokuapp.com
@@ -105,6 +106,14 @@ TC16_Verify_successful_deletion_of_new_booking
         [Documentation]      Deletes the booking
         [Tags]   Smoke
         Delete the booking
+
+TC17_Creation_of_custom_library_and_calling_function_from_customLib
+        [Documentation]      calling functions from custom library
+        [Tags]   Sanity
+        ${random_email} =    generate_random_email
+        ${current_date} =    Get Current Date
+        ${random_name} =    Generate Random Name
+        Log    Random Email: ${random_email}, Random Name: ${random_name} , Current Date: ${current_date}
 
 *** Keywords ***
 Get Data From JSON
