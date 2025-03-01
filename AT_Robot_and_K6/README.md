@@ -1,22 +1,61 @@
-# Dự án Automated Robot Framework
+# Robot Framework Automation Project
 
-Dự án này dùng Robot Framework để test các API của Merchant Service.
+This project uses Robot Framework to automate API testing for Merchant Service.
 
+## Prerequisites
+- Python 3.x
+- pip package manager
+- Git
 
-## Cài đặt
+## Setup and Installation
 
-1. **Tạo virtual environment và active (tuỳ HĐH):**
-   `python -m venv venv`
-   `source venv/bin/activate` # Linux/Mac
-   `.\venv\Scripts\activate` # Windows
+1. **Create and activate Python virtual environment:**
+   ```bash
+   python -m venv venv
+   ```
+   
+   For Linux/Mac:
+   ```bash
+   source venv/bin/activate
+   ```
+   
+   For Windows:
+   ```bash
+   .\venv\Scripts\activate
+   ```
 
-2. **Install librarys:**
-   `pip install -r requirements.txt`
+2. **Install required libraries:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. **Run tests:**
-   `python3 run_tests.py`
+3. **Run test suite:**
+   ```bash
+   python3 run_tests.py
+   ```
 
+## Project Structure
+```
+AT_Robot_and_K6/
+├── tests/         # Test cases
+├── resources/     # Test resources and variables
+├── results/       # Test execution results
+└── requirements.txt
+```
 
-# Dự án K6 Performance Test
+## Features
+- API Testing with Robot Framework
+- Automated test execution
+- Detailed test reports
+- Reusable test components
 
-1. **Cài đặt K6:**
+# K6 Performance Testing Project
+
+A separate performance testing suite using K6.
+
+## K6 Setup
+1. **Install K6:**
+[Add K6 installation steps here]
+
+## Running Performance Tests
+[Add performance test execution steps here]
