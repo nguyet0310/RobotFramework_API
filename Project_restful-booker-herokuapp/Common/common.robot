@@ -19,9 +19,9 @@ ${incorrect_pwd}      yuyrtuop
 ${counter}            ${1}
 ${checkin}            2023-08-30
 ${checkout}           2023-09-10
-${firstname}          India
-${lastname}           Bharat
-${put_firstname}      Hindustan
-${put_lastname}       Jai Hind
-${patch_firstname}    Konkan
-${Patch_lastname}     Maharashtra
+${firstname}          VietName
+${lastname}           Hanoi
+${put_firstname}      Moon
+${put_lastname}       Nguyen
+${patch_firstname}    Anny
+${Patch_lastname}     Mai

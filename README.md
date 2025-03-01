@@ -62,9 +62,8 @@ Execute tags related test cases
 
 ```robot --include SmokeTest '.\Project_restful-booker-herokuapp\Tests\TC3_GetAll&Specific_Bookings.robot'```
 
+Execute test cases and store results in a folder
+```robot -d TestResults TestCases/TC1_Get_Request.robot```
 
 
 
-**Happy Learning**
-
-**Author  : Avdhut Satish Shirgaonkar**  [LinkedIn](https://www.linkedin.com/in/avdhut-shirgaonkar-811243136)

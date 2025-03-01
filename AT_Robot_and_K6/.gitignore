@@ -1,0 +1,13 @@
+# Byte-compiled / compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Robot reports
+reports/
+
+# OS files
+.DS_Store
+Thumbs.db
