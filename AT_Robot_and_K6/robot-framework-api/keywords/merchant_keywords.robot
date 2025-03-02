@@ -68,26 +68,22 @@ Get Merchant By Id
     [Return]    ${resp}
 
 Get Merchants
-    [Arguments]
-    ...    ${page_number}=0
+    [Arguments]    
+    ...     ${query}=${EMPTY}
     [Documentation]    Get list of merchants via API GET /merchants?pageSize=X
 
     Create Session    ${SESSION_ALIAS}    ${BASE_URL}
     
-    ${params}=    Create Dictionary    pageNumber=${page_number}
-    Run Keyword If    ${page_size}===0    Set To Dictionary    ${params}    pageNumber=${page_number}
-
     ${resp}=    GET On Session
     ...    ${SESSION_ALIAS}    
-    ...    /merchant-service/1.0.0/merchants    params=${params}
+    ...    /merchant-service/1.0.0/merchants    params=${query}
     ...    headers=${HEADERS}
     ...    expected_status=any
     
     [Return]    ${resp}
 
 Update Merchant By Id
-    [Arguments]    
-    ...    ${merchant_id}=${TEST_MERCHANT_ID}
+    [Arguments]
     ...    ${base_currency}=GBP
     ...    ${due_after}=30    
     ...    ${invoice_prefix}=INVxxxxxx

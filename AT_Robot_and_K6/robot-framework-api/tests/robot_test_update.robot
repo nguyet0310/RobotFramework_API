@@ -56,15 +56,17 @@ Update merchant with an invalid access token in the request header.
 Update merchant using an empty baseCurrency value
     [Documentation]    Update merchant using an empty baseCurrency value
     Get Token
-    ${resp}=    Update Merchant By Id    ${EMPTY}    INVxxxxxx    30    1    80-01-01    SHOPPING & RETAIL    true
-    ${resp}=    Update Merchant By Id    ${EMPTY}    INVxxxxxx    30    1    80-01-01    SHOPPING & RETAIL    true
+    ${resp}=    Update Merchant By Id    ${EMPTY}    30    INVxxxxxx    1    80-01-01    SHOPPING & RETAIL    true
 
+    Log To Console    Status Code: ${resp}
+
+    Log To Console    Response Body: ${resp.json()}
     ${resContent}=    Set Variable    ${resp.json()}
     ${first_error}=    Get From List    ${resContent['errors']}    0
 
     ${error_code}=    Get From Dictionary    ${first_error}    code
     ${error_message}=    Get From Dictionary    ${first_error}    message
-    Should Be Equal As Integers    ${resp.status_code}    400
+    Should Be Equal As Integers    ${resp.status_code}       400
 
     Log    Response Body: ${resp.json()}
     Log    Status Code ${resp.status_code}
@@ -73,5 +75,5 @@ Update merchant using an empty baseCurrency value
     Should Be Equal As Strings    ${error_message}    The baseCurrency length must be between 3 and 3.
 
     ${formatted_json}=    Evaluate    json.dumps(${resContent}, indent=4, ensure_ascii=False)    json
-    Log To Console    Response Body: \n${formatted_json}
+    Log To Console    \nResponse Body: \n${formatted_json}
     Log To Console    Status Code: ${resp.status_code}

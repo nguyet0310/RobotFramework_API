@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.2 on darwin)" generated="2025-02-09T08:21:04.486173" rpa="false" schemaversion="5">
+<suite id="s1" name="TC1 Get Request" source="/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/TestCases/TC1_Get_Request.robot">
+<test id="s1-t1" name="TC001_WelcomeToBookApi" line="19">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:04.572213" level="INFO">Creating Session using : alias=welcomePage, url=https://simple-books-api.glitch.me, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>welcomePage</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-02-09T08:21:04.572117" elapsed="0.000213"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:05.279631" level="INFO">GET Request : url=https://simple-books-api.glitch.me/ 
+ path_url=/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-02-09T08:21:05.280251" level="INFO">GET Response : url=https://simple-books-api.glitch.me/ 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '46', 'Content-Type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'etag': 'W/"2e-kh6L/Eo2ZbYePMROtHK7TuPdR1U"', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 09 Feb 2025 01:21:05 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-hkg17920-HKG', 'X-Cache': 'MISS', 'X-Cache-Hits': '0', 'X-Timer': 'S1739064065.691961,VS0,VE586'} 
+ body={"message":"Welcome to the Simple Books API."} 
+ </msg>
+<msg time="2025-02-09T08:21:05.280525" level="INFO">/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'simple-books-api.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-02-09T08:21:05.281076" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>welcomePage</arg>
+<arg>/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-02-09T08:21:04.572417" elapsed="0.708756"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.281593" elapsed="0.000870"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.282611" elapsed="0.000478"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.283218" elapsed="0.000461"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.283796" elapsed="0.000429"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.284764" level="INFO">${status_code} = 200</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.284347" elapsed="0.000445"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.285324" level="INFO">${response_body} = {"message":"Welcome to the Simple Books API."}</msg>
+<var>${response_body}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.284913" elapsed="0.000433"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-02-09T08:21:05.286369" level="INFO">${header_X} = Express</msg>
+<var>${header_X}</var>
+<arg>${response.headers}</arg>
+<arg>X-Powered-By</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.285469" elapsed="0.000950"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.286710" elapsed="0.000212"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.287534" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.287066" elapsed="0.000518"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${header_X}</arg>
+<arg>Express</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.287726" elapsed="0.000136"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.288451" level="INFO">${jsonResponse} = {'message': 'Welcome to the Simple Books API.'}</msg>
+<var>${jsonResponse}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.287987" elapsed="0.000488"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-02-09T08:21:05.311671" level="INFO">@{msg} = [ Welcome to the Simple Books API. ]</msg>
+<var>@{msg}</var>
+<arg>${jsonResponse}</arg>
+<arg>message</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-02-09T08:21:05.288608" elapsed="0.023107"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-09T08:21:05.312013" level="INFO">${msgString} = Welcome to the Simple Books API.</msg>
+<var>${msgString}</var>
+<arg>${msg}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.311890" elapsed="0.000137"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${msgString}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.312112" elapsed="0.000116"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response_body}</arg>
+<arg>Welcome to the Simple Books API</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.312299" elapsed="0.000071"/>
+</kw>
+<kw name="Verify Message Is include" owner="common_Utils">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.312740" elapsed="0.000079"/>
+</kw>
+<arg>${response_body}</arg>
+<arg>${expected_message}</arg>
+<status status="PASS" start="2025-02-09T08:21:05.312538" elapsed="0.000319"/>
+</kw>
+<kw name="Verify text is equal" owner="common_Utils">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${exp}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.313099" elapsed="0.000084"/>
+</kw>
+<arg>${msgString}</arg>
+<arg>${expected_message}</arg>
+<status status="PASS" start="2025-02-09T08:21:05.312947" elapsed="0.000267"/>
+</kw>
+<status status="PASS" start="2025-02-09T08:21:04.571675" elapsed="0.741619"/>
+</test>
+<test id="s1-t2" name="TC002_GetStatus" line="51">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:05.313643" level="INFO">Creating Session using : alias=statusPage, url=https://simple-books-api.glitch.me, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>statusPage</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-02-09T08:21:05.313570" elapsed="0.000178"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:05.662959" level="INFO">GET Request : url=https://simple-books-api.glitch.me/status 
+ path_url=/status 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-02-09T08:21:05.663029" level="INFO">GET Response : url=https://simple-books-api.glitch.me/status 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '15', 'Content-Type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'etag': 'W/"f-v/Y1JusChTxrQUzPtNAKycooOTA"', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 09 Feb 2025 01:21:05 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-hkg17925-HKG', 'X-Cache': 'MISS', 'X-Cache-Hits': '0', 'X-Timer': 'S1739064065.398448,VS0,VE266'} 
+ body={"status":"OK"} 
+ </msg>
+<msg time="2025-02-09T08:21:05.663085" level="INFO">/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'simple-books-api.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-02-09T08:21:05.663194" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>statusPage</arg>
+<arg>${get_status}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.313880" elapsed="0.349328"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.663636" level="INFO">${status_code} = 200</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.663348" elapsed="0.000298"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.663713" elapsed="0.000070"/>
+</kw>
+<kw name="Verify JSON payload" owner="common_Utils">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.664216" level="INFO">${jsonResponse} = {'status': 'OK'}</msg>
+<var>${jsonResponse}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.663999" elapsed="0.000228"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-02-09T08:21:05.674356" level="INFO">@{msg} = [ OK ]</msg>
+<var>@{msg}</var>
+<arg>${jsonResponse}</arg>
+<arg>${jsonpath}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-02-09T08:21:05.664270" elapsed="0.010106"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-09T08:21:05.674533" level="INFO">${msgString} = OK</msg>
+<var>${msgString}</var>
+<arg>${msg}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.674448" elapsed="0.000115"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${msgString}</arg>
+<arg>${expected_message}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.674626" elapsed="0.000078"/>
+</kw>
+<arg>${response}</arg>
+<arg>status</arg>
+<arg>OK</arg>
+<status status="PASS" start="2025-02-09T08:21:05.663871" elapsed="0.010875"/>
+</kw>
+<status status="PASS" start="2025-02-09T08:21:05.313415" elapsed="0.361404"/>
+</test>
+<test id="s1-t3" name="TC003_GetListOfBooks" line="59">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:05.675065" level="INFO">Creating Session using : alias=books, url=https://simple-books-api.glitch.me, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>books</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-02-09T08:21:05.675016" elapsed="0.000114"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-02-09T08:21:05.675326" level="INFO">${params} = {'type': 'non-fiction'}</msg>
+<var>${params}</var>
+<arg>type=${book_type}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.675193" elapsed="0.000142"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-02-09T08:21:06.041180" level="INFO">GET Request : url=https://simple-books-api.glitch.me/books?type=non-fiction 
+ path_url=/books?type=non-fiction 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-02-09T08:21:06.041324" level="INFO">GET Response : url=https://simple-books-api.glitch.me/books?type=non-fiction 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '135', 'Content-Type': 'application/json; charset=utf-8', 'x-powered-by': 'Express', 'etag': 'W/"87-fbXCfgu0GEMnqcRoXq5fuhhKazw"', 'Accept-Ranges': 'bytes', 'Date': 'Sun, 09 Feb 2025 01:21:06 GMT', 'Via': '1.1 varnish', 'X-Served-By': 'cache-hkg17926-HKG', 'X-Cache': 'MISS', 'X-Cache-Hits': '0', 'X-Timer': 'S1739064066.756372,VS0,VE284'} 
+ body=[{"id":2,"name":"Just as I Am","type":"non-fiction","available":false},{"id":5,"name":"Untamed","type":"non-fiction","available":true}] 
+ </msg>
+<msg time="2025-02-09T08:21:06.041412" level="INFO">/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'simple-books-api.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-02-09T08:21:06.041571" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>books</arg>
+<arg>${get_books}</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-02-09T08:21:05.675385" elapsed="0.366216"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-02-09T08:21:06.042487" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.041861" elapsed="0.000678"/>
+</kw>
+<kw name="Get Data From JSON" owner="common_Utils">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-09T08:21:06.043536" level="INFO">${jsonResponse} = [{'id': 2, 'name': 'Just as I Am', 'type': 'non-fiction', 'available': False}, {'id': 5, 'name': 'Untamed', 'type': 'non-fiction', 'available': True}]</msg>
+<var>${jsonResponse}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.043072" elapsed="0.000489"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-02-09T08:21:06.063060" level="INFO">${msg} = [5]</msg>
+<var>${msg}</var>
+<arg>${jsonResponse}</arg>
+<arg>${jsonpath}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-02-09T08:21:06.043657" elapsed="0.019432"/>
+</kw>
+<return>
+<value>${msg}</value>
+<status status="PASS" start="2025-02-09T08:21:06.063153" elapsed="0.000049"/>
+</return>
+<msg time="2025-02-09T08:21:06.063299" level="INFO">${book_id} = [5]</msg>
+<var>${book_id}</var>
+<arg>${response}</arg>
+<arg>[1].id</arg>
+<status status="PASS" start="2025-02-09T08:21:06.042783" elapsed="0.020532"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${book_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.063500" elapsed="0.000116"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-09T08:21:06.063786" level="INFO">${book_id_value} = 5</msg>
+<var>${book_id_value}</var>
+<arg>${book_id}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.063695" elapsed="0.000106"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-02-09T08:21:06.063972" level="INFO">${book_id_string} = 5</msg>
+<var>${book_id_string}</var>
+<arg>${book_id_value}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.063880" elapsed="0.000104"/>
+</kw>
+<kw name="Verify text is equal" owner="common_Utils">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${exp}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-02-09T08:21:06.064251" elapsed="0.000094"/>
+</kw>
+<arg>${book_id_string}</arg>
+<arg>5</arg>
+<status status="PASS" start="2025-02-09T08:21:06.064086" elapsed="0.000293"/>
+</kw>
+<status status="PASS" start="2025-02-09T08:21:05.674901" elapsed="0.389570"/>
+</test>
+<status status="PASS" start="2025-02-09T08:21:04.486795" elapsed="1.577920"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TC1 Get Request" id="s1" pass="3" fail="0" skip="0">TC1 Get Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-02-09T08:21:04.569111" level="WARN">Error in file '/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/Utils/common_Utils.robot' on line 16: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-02-09T08:21:04.569203" level="WARN">Error in file '/Users/nguyetnguyen/DemoTest/APIAutomation_RobotFramework/Utils/common_Utils.robot' on line 23: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
